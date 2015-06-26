@@ -32,8 +32,9 @@ public class Server {
                     try {
                         ClientInfo ci = new ClientInfo(client);
                         Thread thread = new Thread(ci);
-
-
+                        thread.setDaemon(true);
+                        thread.start();
+                        q.offer(ci);
                         String message = String.format("ip %s, port %s\n",
                                 client.getInetAddress(),
                                 client.getPort());
