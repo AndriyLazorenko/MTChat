@@ -7,7 +7,7 @@ import java.net.Socket;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
-public class Server implements ServerAndSubject{
+public class Server {
 
     private static int port;
     ServerSocket ss = null;
