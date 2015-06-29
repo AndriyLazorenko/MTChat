@@ -22,7 +22,11 @@ public class Client implements ClientAndObserver {
         try {
             System.out.println("Waiting for server");
             s.connect(new InetSocketAddress(ip, port), timeout);
-            System.out.println(s.isConnected());
+            //Check for connection
+            if (s.isConnected()) {
+                System.out.println("You are connected to chat server "+s.getRemoteSocketAddress().toString());
+            }
+            System.out.println("Insert your username for this chatroom");
             //Client writes message
             speak(s);
             //Client reads message
