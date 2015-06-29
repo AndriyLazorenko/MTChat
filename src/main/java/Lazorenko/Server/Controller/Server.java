@@ -39,10 +39,10 @@ public class Server {
                     //Client put to container for easy notification
                     clientsContainer.getQ().offer(ci);
                     //Message to server about new client
-                    String message = String.format("ip %s, port %s\n",
+                    String connected = String.format("ip %s, port %s\n",
                             client.getInetAddress(),
                             client.getPort());
-                    System.out.println(message);
+                    System.out.println(connected);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -108,14 +108,7 @@ public class Server {
                             if (name.toString().toLowerCase().equals(rci.getUserName().toLowerCase())) {
                                 //Method to ask again for a new name
                                 matchingNameFound = true;
-                                //TODO
-                                //Understand why doesn't the method work
-                                try {
-                                    clientInfo.getBw().write("Name already exists! Try again!");
-                                    clientInfo.getBw().flush();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
+                                clientInfo.notifyClient(clientsContainer.getQ());
                             }
                         }
                     }
@@ -161,17 +154,14 @@ public class Server {
         }
 
         @Override
-        //TODO
-        //Remaster exit logic
         public void run() {
-            while (!registeredClientInfo.getS().isClosed()) {
+            while (!Thread.currentThread().isInterrupted()) {
                 String line = null;
                 try {
                     line = registeredClientInfo.getBr().readLine();
                 } catch (IOException e) {
                     close(reg.getQ());
                 }
-
                 if (line == null) {
                     close(reg.getQ());
                 } else if ("shutdown".equals(line)) {
@@ -183,9 +173,13 @@ public class Server {
                         shutdownServer();
                     }
                 } else {
-                    //We process clients input in here
+                    //A message is formed from line
+                    String ip = registeredClientInfo.getS().getInetAddress().toString();
+                    int port = registeredClientInfo.getS().getPort();
+                    String message = ip + ":" + ":" + port + " -> " +registeredClientInfo.getUserName()+" says: "+line;
+                    //Formatted message is sent to all registered users
                     for (RegisteredClientInfo rci : reg.getQ()) {
-                        rci.send(line, reg.getQ());
+                        rci.send(message, reg.getQ());
                     }
                 }
             }

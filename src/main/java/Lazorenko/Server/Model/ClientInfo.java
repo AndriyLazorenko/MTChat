@@ -22,15 +22,18 @@ public class ClientInfo extends AbstractClientInfo {
     @Override
     public synchronized void send (String line, Queue q) {
         try {
-            String ip = s.getInetAddress().toString();
-            int port = s.getPort();
-            String message = ip + ":" + ":" + port + " -> " + line;
+            String message = line;
             bw.write(message);
             bw.write("\n");
             bw.flush();
         } catch (IOException e) {
             close(q);
         }
+    }
+
+    public void notifyClient(Queue q){
+        String notification = "Name already exists! Try again!";
+        send(notification,q);
     }
 
 }

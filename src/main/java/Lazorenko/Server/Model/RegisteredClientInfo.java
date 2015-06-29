@@ -27,11 +27,8 @@ public class RegisteredClientInfo extends AbstractClientInfo{
     }
 
     @Override
-    public synchronized void send (String line, Queue q) {
+    public synchronized void send (String message, Queue q) {
         try {
-            String ip = s.getInetAddress().toString();
-            int port = s.getPort();
-            String message = ip + ":" + ":" + port + " -> " +getUserName()+" says: "+line;
             bw.write(message);
             bw.write("\n");
             bw.flush();
