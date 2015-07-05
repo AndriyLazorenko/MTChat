@@ -1,5 +1,7 @@
 package Lazorenko.Server.Model;
 
+import Lazorenko.Server.Logger.ServerLogToFile;
+
 import java.io.*;
 import java.net.Socket;
 import java.util.Queue;
@@ -11,6 +13,7 @@ import java.util.Queue;
 public class RegisteredClientInfo extends AbstractClientInfo{
 
     private String userName;
+    private ServerLogToFile log = ServerLogToFile.getInstance();
 
     public RegisteredClientInfo() {
     }
@@ -34,6 +37,7 @@ public class RegisteredClientInfo extends AbstractClientInfo{
             bw.flush();
         } catch (IOException e) {
             close(q);
+            log.getLogger().error(e.getMessage());
         }
     }
 

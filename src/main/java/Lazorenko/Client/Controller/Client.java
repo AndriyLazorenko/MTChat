@@ -1,6 +1,8 @@
 
 package Lazorenko.Client.Controller;
 
+import Lazorenko.Client.Logger.ClientLogToFile;
+
 import java.io.*;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -11,6 +13,7 @@ public class Client implements ClientAndObserver {
     private static String ip;
     private static int port;
     private static final int timeout = 10000;
+    private ClientLogToFile log = ClientLogToFile.getInstance();
 
     public Client(String ip, int port){
         this.ip = ip;
@@ -24,15 +27,16 @@ public class Client implements ClientAndObserver {
             s.connect(new InetSocketAddress(ip, port), timeout);
             //Check for connection
             if (s.isConnected()) {
-                System.out.println("You are connected to chat server "+s.getRemoteSocketAddress().toString());
+                System.out.println("You are connected to chat server " + s.getRemoteSocketAddress().toString());
             }
-            System.out.println("Insert your username for this chatroom");
-            //Client writes message
-            speak(s);
-            //Client reads message
-            listen(s);
+                System.out.println("Insert your username for this chatroom");
+                //Client writes message
+                speak(s);
+                //Client reads message
+                listen(s);
         } catch (IOException e) {
             e.printStackTrace();
+            log.getLogger().error(e.getMessage());
         }
     }
 
@@ -51,6 +55,7 @@ public class Client implements ClientAndObserver {
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
+                    log.getLogger().error(e.getMessage());
                 }
 
             }
@@ -74,6 +79,7 @@ public class Client implements ClientAndObserver {
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
+                    log.getLogger().error(e.getMessage());
                 }
 
             }

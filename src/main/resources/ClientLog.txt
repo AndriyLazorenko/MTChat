@@ -1,0 +1,3 @@
+05/07/2015 12:18:01 - INFO - Server is being shutdown on commandINFO  main:183 - Server is being shutdown on command
+05/07/2015 12:18:26 - INFO - Server is being shutdown on commandINFO  main:183 - Server is being shutdown on command
+05/07/2015 12:28:31 - ERROR - Connection refused

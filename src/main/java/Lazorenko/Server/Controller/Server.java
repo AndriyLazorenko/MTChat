@@ -1,6 +1,7 @@
 package Lazorenko.Server.Controller;
 
 
+import Lazorenko.Server.Logger.ServerLogToFile;
 import Lazorenko.Server.Model.*;
 import java.io.*;
 import java.net.ServerSocket;
@@ -9,10 +10,11 @@ import java.net.Socket;
 public class Server {
 
     private static int port;
-    ServerSocket ss = null;
-    Thread mainThread;
-    ClientsContainer clientsContainer = new ClientsContainer();
-    RegisteredClientsContainer reg = new RegisteredClientsContainer();
+    private ServerSocket ss = null;
+    private Thread mainThread;
+    private ClientsContainer clientsContainer = new ClientsContainer();
+    private RegisteredClientsContainer reg = new RegisteredClientsContainer();
+    private ServerLogToFile log = ServerLogToFile.getInstance();
 
     public Server(int port) throws IOException {
         this.port = port;
@@ -45,6 +47,8 @@ public class Server {
                     System.out.println(connected);
                 } catch (IOException e) {
                     e.printStackTrace();
+                    log.getLogger().error(e.getMessage());
+
                 }
             }
         }
@@ -56,6 +60,7 @@ public class Server {
             forRet = ss.accept();
         } catch (IOException e) {
             shutdownServer();
+            log.getLogger().error("Server is being shutdown because of "+e.getMessage());
         }
         return forRet;
     }
@@ -74,9 +79,9 @@ public class Server {
     }
 
     class GeneralClientThread extends ClientInfo implements Runnable {
-        ClientInfo clientInfo;
+        private ClientInfo clientInfo;
 
-        GeneralClientThread(ClientInfo clientInfo) {
+        private GeneralClientThread(ClientInfo clientInfo) {
             this.clientInfo = clientInfo;
         }
 
@@ -91,6 +96,7 @@ public class Server {
                         name = clientInfo.getBr().readLine();
                     } catch (IOException e) {
                         close(clientsContainer.getQ());
+                        log.getLogger().error(e.getMessage());
                     }
                     if (name == null) {
                         close(clientsContainer.getQ());
@@ -101,6 +107,7 @@ public class Server {
                         } catch (IOException ignored) {
                         } finally {
                             shutdownServer();
+                            log.getLogger().info("Server is given command to shutdown");
                         }
                     } else {
                         //We process clients input in here
@@ -142,12 +149,13 @@ public class Server {
                 clientInfo.close(clientsContainer.getQ());
             } catch (IOException e) {
                 e.printStackTrace();
+                log.getLogger().error(e.getMessage());
             }
         }
     }
 
     class RegisteredClientThread extends RegisteredClientInfo implements Runnable {
-        RegisteredClientInfo registeredClientInfo;
+        private RegisteredClientInfo registeredClientInfo;
 
         RegisteredClientThread(RegisteredClientInfo registeredClientInfo) {
             this.registeredClientInfo = registeredClientInfo;
@@ -161,6 +169,7 @@ public class Server {
                     line = registeredClientInfo.getBr().readLine();
                 } catch (IOException e) {
                     close(reg.getQ());
+                    log.getLogger().error(e.getMessage());
                 }
                 if (line == null) {
                     close(reg.getQ());
@@ -171,6 +180,7 @@ public class Server {
                     } catch (IOException ignored) {
                     } finally {
                         shutdownServer();
+                        log.getLogger().info("Server is being shutdown on command");
                     }
                 } else {
                     //A message is formed from line
