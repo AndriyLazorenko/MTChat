@@ -1,1 +1,7 @@
 ERROR main:41 - Connection refused
+INFO  main:31 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:40 - connect timed out
+ERROR main:40 - connect timed out
+ERROR main:19 - Server init error Address already in use
+ERROR main:19 - Server init error Address already in use
+ERROR main:19 - Server init error: Address already in use

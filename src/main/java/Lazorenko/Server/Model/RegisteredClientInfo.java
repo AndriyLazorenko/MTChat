@@ -37,7 +37,7 @@ public class RegisteredClientInfo extends AbstractClientInfo{
             bw.flush();
         } catch (IOException e) {
             close(q);
-            log.getLogger().error(e.getMessage());
+            log.getLogger().error(e.getMessage()+"\n");
         }
     }
 

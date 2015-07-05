@@ -47,7 +47,7 @@ public class Server {
                     System.out.println(connected);
                 } catch (IOException e) {
                     e.printStackTrace();
-                    log.getLogger().error(e.getMessage());
+                    log.getLogger().error(e.getMessage()+"\n");
 
                 }
             }
@@ -60,7 +60,7 @@ public class Server {
             forRet = ss.accept();
         } catch (IOException e) {
             shutdownServer();
-            log.getLogger().error("Server is being shutdown because of "+e.getMessage());
+            log.getLogger().error("Server is being shutdown because of "+e.getMessage()+"\n");
         }
         return forRet;
     }
@@ -96,7 +96,7 @@ public class Server {
                         name = clientInfo.getBr().readLine();
                     } catch (IOException e) {
                         close(clientsContainer.getQ());
-                        log.getLogger().error(e.getMessage());
+                        log.getLogger().error(e.getMessage()+"\n");
                     }
                     if (name == null) {
                         close(clientsContainer.getQ());
@@ -107,7 +107,7 @@ public class Server {
                         } catch (IOException ignored) {
                         } finally {
                             shutdownServer();
-                            log.getLogger().info("Server is given command to shutdown");
+                            log.getLogger().info("Server is given command to shutdown"+"\n");
                         }
                     } else {
                         //We process clients input in here
@@ -149,7 +149,7 @@ public class Server {
                 clientInfo.close(clientsContainer.getQ());
             } catch (IOException e) {
                 e.printStackTrace();
-                log.getLogger().error(e.getMessage());
+                log.getLogger().error(e.getMessage()+"\n");
             }
         }
     }
@@ -169,7 +169,7 @@ public class Server {
                     line = registeredClientInfo.getBr().readLine();
                 } catch (IOException e) {
                     close(reg.getQ());
-                    log.getLogger().error(e.getMessage());
+                    log.getLogger().error(e.getMessage()+"\n");
                 }
                 if (line == null) {
                     close(reg.getQ());
@@ -180,7 +180,7 @@ public class Server {
                     } catch (IOException ignored) {
                     } finally {
                         shutdownServer();
-                        log.getLogger().info("Server is being shutdown on command");
+                        log.getLogger().info("Server is being shutdown on command"+"\n");
                     }
                 } else {
                     //A message is formed from line

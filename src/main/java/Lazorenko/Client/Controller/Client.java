@@ -28,6 +28,7 @@ public class Client implements ClientAndObserver {
             //Check for connection
             if (s.isConnected()) {
                 System.out.println("You are connected to chat server " + s.getRemoteSocketAddress().toString());
+                log.getLogger().info("Client "+ s.getRemoteSocketAddress().toString()+" has connected to server");
             }
                 System.out.println("Insert your username for this chatroom");
                 //Client writes message
@@ -36,7 +37,7 @@ public class Client implements ClientAndObserver {
                 listen(s);
         } catch (IOException e) {
             e.printStackTrace();
-            log.getLogger().error(e.getMessage());
+            log.getLogger().error(e.getMessage()+"\n");
         }
     }
 
@@ -55,7 +56,7 @@ public class Client implements ClientAndObserver {
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
-                    log.getLogger().error(e.getMessage());
+                    log.getLogger().error(e.getMessage()+"\n");
                 }
 
             }
@@ -79,7 +80,7 @@ public class Client implements ClientAndObserver {
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
-                    log.getLogger().error(e.getMessage());
+                    log.getLogger().error(e.getMessage()+"\n");
                 }
 
             }
