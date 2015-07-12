@@ -2,6 +2,7 @@
 package Lazorenko.Client.Controller;
 
 import Lazorenko.Client.Logger.ClientLogToFile;
+import Lazorenko.Common.Messages.ChatMessage;
 
 import java.io.*;
 import java.net.InetSocketAddress;
@@ -10,14 +11,19 @@ import java.util.Scanner;
 
 
 public class Client implements ClientAndObserver {
-    private static String ip;
-    private static int port;
-    private static final int timeout = 10000;
-    private ClientLogToFile log = ClientLogToFile.getInstance();
+    protected static String ip;
+    protected static int port;
+    protected static final int timeout = 10000;
+    protected ClientLogToFile log = ClientLogToFile.getInstance();
+    protected static boolean isClientRegistered = false;
+    protected static String clientName;
 
     public Client(String ip, int port){
         this.ip = ip;
         this.port = port;
+    }
+
+    public Client() {
     }
 
     public void run() {
@@ -36,8 +42,8 @@ public class Client implements ClientAndObserver {
                 //Client reads message
                 listen(s);
         } catch (IOException e) {
-            e.printStackTrace();
             log.getLogger().error(e.getMessage()+"\n");
+            e.printStackTrace();
         }
     }
 
@@ -47,18 +53,21 @@ public class Client implements ClientAndObserver {
             @Override
             public void run() {
                 try {
-                    PrintWriter pw = new PrintWriter(s.getOutputStream());
+                    ObjectOutputStream oos = new ObjectOutputStream(s.getOutputStream());
                     Scanner console = new Scanner(System.in);
                     while (true){
                         String message = console.nextLine();
-                        pw.println(message);
-                        pw.flush();
+                        ClientMessageProcessor processor = new ClientMessageProcessor(message,isClientRegistered);
+                        ChatMessage chatMessage = processor.run();
+                        if (chatMessage!=null) {
+                            oos.writeObject(chatMessage);
+                            oos.flush();
+                        }
                     }
                 } catch (IOException e) {
-                    e.printStackTrace();
                     log.getLogger().error(e.getMessage()+"\n");
+                    e.printStackTrace();
                 }
-
             }
         }).start();
 
@@ -71,16 +80,34 @@ public class Client implements ClientAndObserver {
             public void run() {
                 try {
                     InputStream is = s.getInputStream();
-                    InputStreamReader adapter = new InputStreamReader(is);
-                    BufferedReader br = new BufferedReader(adapter);
-                    String remoteMessage = br.readLine();
-                    while (remoteMessage!=null){
-                        System.out.println(remoteMessage);
-                        remoteMessage = br.readLine();
+                    ObjectInputStream ois = new ObjectInputStream(is);
+                    ChatMessage message = (ChatMessage) ois.readObject();
+                    while (message!=null){
+
+                        //Check if message is a command. If it is, it is processed. If not - the message is simply passed
+                        if (message.isClientRegistered()) {
+                            isClientRegistered = true;
+                            clientName = message.getUsername();
+                        }
+                        else if (message.getFile()!=null){
+                            ClientFileReceiving fileReceiving = new ClientFileReceiving(message);
+                            fileReceiving.receive();
+                        }
+                        else {
+                            StringBuilder formattedMessage = null;
+                            formattedMessage = formattedMessage.append(message.getIp())
+                                    .append(":") .append(":") .append(message.getPort())
+                                    .append(" -> ") .append(message.getUsername())
+                                    .append(" says: ") .append(message.getSimpleMessage());
+                            System.out.println(formattedMessage.toString());
+                        }
                     }
                 } catch (IOException e) {
-                    e.printStackTrace();
                     log.getLogger().error(e.getMessage()+"\n");
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    log.getLogger().error(e.getMessage()+"\n");
+                    e.printStackTrace();
                 }
 
             }

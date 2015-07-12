@@ -1,7 +1,7 @@
 package Lazorenko.Server.Model;
 
 
-import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ConcurrentMap;
 
 /**
  * Created by andriylazorenko on 26.06.15.
@@ -9,8 +9,19 @@ import java.util.concurrent.BlockingQueue;
 
 public class ClientsContainer extends AbstractClientsContainer {
 
-    @Override
-    public BlockingQueue<ClientInfo> getQ() {
-        return q;
+    private volatile static ClientsContainer uniqueInstance;
+
+    public static ClientsContainer getInstance(){
+        if (uniqueInstance==null){
+            synchronized (ConcurrentMap.class){
+                if (uniqueInstance==null){
+                    uniqueInstance = new ClientsContainer();
+                }
+            }
+        }
+        return uniqueInstance;
+    }
+
+    private ClientsContainer() {
     }
 }

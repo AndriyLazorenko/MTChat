@@ -1,6 +1,9 @@
 package Lazorenko.Server.Controller;
 
 
+import Lazorenko.Common.Messages.ChatMessage;
+import Lazorenko.Server.Commands.RegisterClient;
+import Lazorenko.Server.Commands.ServerCommands;
 import Lazorenko.Server.Logger.ServerLogToFile;
 import Lazorenko.Server.Model.*;
 import java.io.*;
@@ -12,8 +15,8 @@ public class Server {
     private static int port;
     private ServerSocket ss = null;
     private Thread mainThread;
-    private ClientsContainer clientsContainer = new ClientsContainer();
-    private RegisteredClientsContainer reg = new RegisteredClientsContainer();
+    private ClientsContainer clientsContainer = ClientsContainer.getInstance();
+    private RegisteredClientsContainer reg = RegisteredClientsContainer.getInstance();
     private ServerLogToFile log = ServerLogToFile.getInstance();
 
     public Server(int port) throws IOException {
@@ -39,16 +42,15 @@ public class Server {
 //                    thread.setDaemon(true);
                     thread.start();
                     //Client put to container for easy notification
-                    clientsContainer.getQ().offer(ci);
+                    clientsContainer.getContainer().put(Integer.toString(ci.getS().getPort()), ci);
                     //Message to server about new client
                     String connected = String.format("ip %s, port %s\n",
                             client.getInetAddress(),
                             client.getPort());
                     System.out.println(connected);
                 } catch (IOException e) {
-                    e.printStackTrace();
                     log.getLogger().error(e.getMessage()+"\n");
-
+                    e.printStackTrace();
                 }
             }
         }
@@ -59,15 +61,15 @@ public class Server {
         try {
             forRet = ss.accept();
         } catch (IOException e) {
-            shutdownServer();
             log.getLogger().error("Server is being shutdown because of "+e.getMessage()+"\n");
+            shutdownServer();
         }
         return forRet;
     }
 
     private void shutdownServer() {
-        for (ClientInfo ci : clientsContainer.getQ()) {
-            ci.close(clientsContainer.getQ());
+        for (AbstractClientInfo ci : clientsContainer.getContainer().values()) {
+            ci.close(clientsContainer.getContainer());
         }
         if (!ss.isClosed()) {
             try {
@@ -87,46 +89,63 @@ public class Server {
 
 
         public void run() {
-            String name = null;
+            ChatMessage name = null;
             while (!Thread.currentThread().isInterrupted()) {
                 boolean clientNameIsCorrect = false;
+                UsernameValidator validator = new UsernameValidator();
+                boolean clientNameValidated = false;
                 while (!clientNameIsCorrect) {
                     boolean matchingNameFound = false;
                     try {
-                        name = clientInfo.getBr().readLine();
+                        ObjectInputStream ois = clientInfo.getOis();
+                        name = (ChatMessage) ois.readObject();
                     } catch (IOException e) {
-                        close(clientsContainer.getQ());
+                        close(clientsContainer.getContainer());
                         log.getLogger().error(e.getMessage()+"\n");
+                    } catch (ClassNotFoundException e) {
+                        log.getLogger().error(e.getMessage()+"\n");
+                        e.printStackTrace();
                     }
                     if (name == null) {
-                        close(clientsContainer.getQ());
-                    } else if ("shutdown".equals(name)) {
+                        close(clientsContainer.getContainer());
+                    } else if ("shutdown".equals(name.getSimpleMessage())) {
                         mainThread.interrupt();
                         try {
                             new Socket("localhost", port);
                         } catch (IOException ignored) {
                         } finally {
-                            shutdownServer();
                             log.getLogger().info("Server is given command to shutdown"+"\n");
+                            shutdownServer();
                         }
                     } else {
+
                         //We process clients input in here
-                        for (RegisteredClientInfo rci : reg.getQ()) {
-                            if (name.toString().toLowerCase().equals(rci.getUserName().toLowerCase())) {
+
+                        for (String existingNames : reg.getContainer().keySet()) {
+                            if (name.getSimpleMessage().toLowerCase().equals(existingNames.toLowerCase())) {
                                 //Method to ask again for a new name
                                 matchingNameFound = true;
-                                clientInfo.notifyClient(clientsContainer.getQ());
+                                clientInfo.nameExistsNotifyClient(clientsContainer.getContainer());
                             }
                         }
                     }
+                    //Additional check for validity of name
                     if (!matchingNameFound) {
-                        clientNameIsCorrect = true;
+                        if (!clientNameValidated) {
+                            clientNameValidated=validator.validate(name.getSimpleMessage());
+                            if (clientNameValidated){
+                                clientNameIsCorrect = true;
+                            }
+                            else {
+                                clientInfo.validateNotifyClient(clientsContainer.getContainer());
+                            }
+                        }
                     }
                 }
                 //So, if the cycle is finished, the name is not found in database
                 //Now we need to end lifecycles with not registered client and start registered client
                 //lifecycles
-                registerClient(name);
+                registerClient(name.getSimpleMessage());
             }
             System.out.println("The user has been registered");
         }
@@ -137,19 +156,25 @@ public class Server {
                 RegisteredClientInfo rci = new RegisteredClientInfo(clientInfo.getS(),validName);
                 RegisteredClientThread rct = new RegisteredClientThread(rci);
                 //Client put to container for easy notification
-                reg.getQ().offer(rci);
+                reg.getContainer().put(validName,rci);
                 //Sending message to client
-                rci.getBw().write("The server registered you as "+validName+"\n");
-                rci.getBw().flush();
+                //
+                ChatMessage serverRegistration = new ChatMessage("The server registered you as " + validName + "\n");
+                rci.getOos().writeObject(serverRegistration);
+                rci.getOos().flush();
                 //New thread allocated to client
                 Thread thread = new Thread(rct);
 //                thread.setDaemon(true);
                 thread.start();
                 //Removing client from general queue and interrupting thread
-                clientInfo.close(clientsContainer.getQ());
+                clientInfo.close(clientsContainer.getContainer());
+                //Sending a command to client to register server
+                ServerCommands command = new RegisterClient(rci);
+                command.execute();
+
             } catch (IOException e) {
-                e.printStackTrace();
                 log.getLogger().error(e.getMessage()+"\n");
+                e.printStackTrace();
             }
         }
     }
@@ -164,32 +189,38 @@ public class Server {
         @Override
         public void run() {
             while (!Thread.currentThread().isInterrupted()) {
-                String line = null;
+                ChatMessage message = null;
                 try {
-                    line = registeredClientInfo.getBr().readLine();
+                    message = (ChatMessage) registeredClientInfo.getOis().readObject();
                 } catch (IOException e) {
-                    close(reg.getQ());
+                    close(reg.getContainer());
                     log.getLogger().error(e.getMessage()+"\n");
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                    log.getLogger().error(e.getMessage() + "\n");
                 }
-                if (line == null) {
-                    close(reg.getQ());
-                } else if ("shutdown".equals(line)) {
+                if (message == null) {
+                    close(reg.getContainer());
+                } else if ("shutdown".equals(message.getSimpleMessage())) {
                     mainThread.interrupt();
                     try {
                         new Socket("localhost", port);
                     } catch (IOException ignored) {
                     } finally {
+                        log.getLogger().info("Server is being shutdown on command" + "\n");
                         shutdownServer();
-                        log.getLogger().info("Server is being shutdown on command"+"\n");
                     }
                 } else {
-                    //A message is formed from line
+                    //A message is formed
                     String ip = registeredClientInfo.getS().getInetAddress().toString();
                     int port = registeredClientInfo.getS().getPort();
-                    String message = ip + ":" + ":" + port + " -> " +registeredClientInfo.getUserName()+" says: "+line;
+                    String username = registeredClientInfo.getUserName();
+                    message.setIp(ip);
+                    message.setPort(port);
+                    message.setUsername(username);
                     //Formatted message is sent to all registered users
-                    for (RegisteredClientInfo rci : reg.getQ()) {
-                        rci.send(message, reg.getQ());
+                    for (AbstractClientInfo rci : reg.getContainer().values()) {
+                        rci.send(message, reg.getContainer());
                     }
                 }
             }
