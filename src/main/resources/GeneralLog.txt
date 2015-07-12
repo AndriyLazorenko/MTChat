@@ -5,3 +5,170 @@ ERROR main:40 - connect timed out
 ERROR main:19 - Server init error Address already in use
 ERROR main:19 - Server init error Address already in use
 ERROR main:19 - Server init error: Address already in use
+INFO  main:31 - Client localhost/127.0.0.1:8888 has connected to server
+INFO  main:36 - Client localhost/127.0.0.1:8888 has connected to server
+INFO  main:36 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:176 - invalid stream header: 7371007E
+
+ERROR main:104 - invalid type code: 00
+
+ERROR main:176 - invalid stream header: 00000000
+
+ERROR main:106 - Connection reset
+
+INFO  main:36 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:197 - Connection reset
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:197 - Connection reset
+
+ERROR main:18 - Server init error: Address already in use
+
+ERROR main:18 - Server init error: Address already in use
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:196 - null
+
+ERROR main:31 - Broken pipe
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:18 - Server init error: Address already in use
+
+ERROR main:18 - Server init error: Address already in use
+
+ERROR main:196 - null
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:103 - null
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:196 - null
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:45 - Broken pipe
+
+ERROR main:103 - null
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:18 - Server init error: Address already in use
+
+ERROR main:18 - Server init error: Address already in use
+
+ERROR main:103 - null
+
+ERROR main:18 - Server init error: Address already in use
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:196 - null
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:45 - Broken pipe
+
+ERROR main:103 - Connection reset
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+INFO  main:209 - Server is being shutdown on command
+
+ERROR main:103 - null
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:196 - null
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:45 - Broken pipe
+
+ERROR main:103 - null
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:196 - null
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:45 - Broken pipe
+
+ERROR main:58 - No such file or directory
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:45 - Broken pipe
+
+ERROR main:45 - Broken pipe
+
+ERROR main:103 - Connection reset
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:58 - No such file or directory
+
+ERROR main:103 - null
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:58 - No such file or directory
+
+ERROR main:18 - Server init error: Address already in use
+
+ERROR main:18 - Server init error: Address already in use
+
+ERROR main:18 - Server init error: Address already in use
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:57 - No such file or directory
+
+ERROR main:103 - null
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:45 - Broken pipe
+
+ERROR main:18 - Server init error: Address already in use
+
+ERROR main:58 - No such file or directory
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:45 - Broken pipe
+
+ERROR main:45 - Broken pipe
+
+ERROR main:46 - No such file exists! Try again!
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:45 - Broken pipe
+
+ERROR main:45 - Broken pipe
+
+ERROR main:45 - Broken pipe
+
+ERROR main:103 - MTChat/src/main/resources
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:45 - Broken pipe
+
+ERROR main:45 - Broken pipe
+
+ERROR main:45 - Broken pipe
+
+ERROR main:45 - Broken pipe
+
+ERROR main:18 - Server init error: Address already in use
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:44 - Broken pipe
+
+ERROR main:44 - Broken pipe
+
+ERROR main:44 - Broken pipe
+
+ERROR main:44 - Broken pipe
+
+ERROR main:? - No such file or directory
+
+ERROR main:103 - Connection reset
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:60 - No such file or directory
+
+ERROR main:103 - null
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:60 - No such file or directory
+
+ERROR main:196 - null
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server

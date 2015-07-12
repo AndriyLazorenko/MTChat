@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class ClientLogToFile {
     private static final String name = "main";
-    private static final String path = "resources/ClientLog.txt";
+    private static final String path = "src/main/resources/ClientLog.txt";
 
     public Logger getLogger() {
         return logger;

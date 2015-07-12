@@ -1,7 +1,6 @@
 package Lazorenko.Server.View;
 import Lazorenko.Server.Controller.Server;
 import Lazorenko.Server.Logger.ServerLogToFile;
-
 import java.io.IOException;
 
 public class RunServer {
@@ -18,6 +17,5 @@ public class RunServer {
             e.printStackTrace();
             log.getLogger().error("Server init error: " +e.getMessage()+"\n");
         }
-
     }
 }

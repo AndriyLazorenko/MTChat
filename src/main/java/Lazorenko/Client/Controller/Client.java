@@ -3,6 +3,7 @@ package Lazorenko.Client.Controller;
 
 import Lazorenko.Client.Logger.ClientLogToFile;
 import Lazorenko.Common.Messages.ChatMessage;
+import Lazorenko.Common.Messages.MessageFormatter;
 
 import java.io.*;
 import java.net.InetSocketAddress;
@@ -42,7 +43,7 @@ public class Client implements ClientAndObserver {
                 //Client reads message
                 listen(s);
         } catch (IOException e) {
-            log.getLogger().error(e.getMessage()+"\n");
+            log.getLogger().error(e.getMessage() + "\n");
             e.printStackTrace();
         }
     }
@@ -55,22 +56,23 @@ public class Client implements ClientAndObserver {
                 try {
                     ObjectOutputStream oos = new ObjectOutputStream(s.getOutputStream());
                     Scanner console = new Scanner(System.in);
-                    while (true){
+                    while (s.isConnected()){
                         String message = console.nextLine();
-                        ClientMessageProcessor processor = new ClientMessageProcessor(message,isClientRegistered);
-                        ChatMessage chatMessage = processor.run();
-                        if (chatMessage!=null) {
+                        //TODO possible source of problems
+                        if (message!=null) {
+                            ClientMessageProcessor processor =
+                                    new ClientMessageProcessor(message, isClientRegistered);
+                            ChatMessage chatMessage = processor.run();
                             oos.writeObject(chatMessage);
                             oos.flush();
                         }
                     }
                 } catch (IOException e) {
-                    log.getLogger().error(e.getMessage()+"\n");
+                    log.getLogger().error(e.getMessage() + "\n");
                     e.printStackTrace();
                 }
             }
         }).start();
-
     }
 
     @Override
@@ -81,9 +83,8 @@ public class Client implements ClientAndObserver {
                 try {
                     InputStream is = s.getInputStream();
                     ObjectInputStream ois = new ObjectInputStream(is);
-                    ChatMessage message = (ChatMessage) ois.readObject();
-                    while (message!=null){
-
+                    while (s.isConnected()){
+                        ChatMessage message = (ChatMessage) ois.readObject();
                         //Check if message is a command. If it is, it is processed. If not - the message is simply passed
                         if (message.isClientRegistered()) {
                             isClientRegistered = true;
@@ -94,19 +95,15 @@ public class Client implements ClientAndObserver {
                             fileReceiving.receive();
                         }
                         else {
-                            StringBuilder formattedMessage = null;
-                            formattedMessage = formattedMessage.append(message.getIp())
-                                    .append(":") .append(":") .append(message.getPort())
-                                    .append(" -> ") .append(message.getUsername())
-                                    .append(" says: ") .append(message.getSimpleMessage());
-                            System.out.println(formattedMessage.toString());
+                            MessageFormatter formatter = new MessageFormatter(message);
+                            System.out.println(formatter.returnFormattedMessage());
                         }
                     }
                 } catch (IOException e) {
                     log.getLogger().error(e.getMessage()+"\n");
                     e.printStackTrace();
                 } catch (ClassNotFoundException e) {
-                    log.getLogger().error(e.getMessage()+"\n");
+                    log.getLogger().error(e.getMessage() + "\n");
                     e.printStackTrace();
                 }
 

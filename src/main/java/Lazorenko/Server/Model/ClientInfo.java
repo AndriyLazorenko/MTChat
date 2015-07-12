@@ -1,11 +1,9 @@
 package Lazorenko.Server.Model;
 
 import Lazorenko.Common.Messages.ChatMessage;
-import Lazorenko.Server.Logger.ServerLogToFile;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.Queue;
 import java.util.concurrent.ConcurrentMap;
 
 /**

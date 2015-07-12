@@ -1,3 +1,25 @@
 05/07/2015 12:18:01 - INFO - Server is being shutdown on commandINFO  main:183 - Server is being shutdown on command
 05/07/2015 12:18:26 - INFO - Server is being shutdown on commandINFO  main:183 - Server is being shutdown on command
-05/07/2015 12:28:31 - ERROR - Connection refused05/07/2015 01:35:39 - INFO - Client localhost/127.0.0.1:8888 has connected to server05/07/2015 01:36:20 - ERROR - connect timed out05/07/2015 01:37:05 - ERROR - connect timed out05/07/2015 01:42:24 - ERROR - Server init error Address already in use
+05/07/2015 12:28:31 - ERROR - Connection refused05/07/2015 01:35:39 - INFO - Client localhost/127.0.0.1:8888 has connected to server05/07/2015 01:36:20 - ERROR - connect timed out05/07/2015 01:37:05 - ERROR - connect timed out05/07/2015 01:42:24 - ERROR - Server init error Address already in use08/07/2015 02:20:22 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 11:36:38 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 01:29:37 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 01:31:34 - ERROR - Connection reset
+12/07/2015 01:31:43 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 01:42:19 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 01:56:34 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 01:59:25 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 02:09:56 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 02:13:14 - ERROR - null
+12/07/2015 02:13:44 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 02:14:43 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 03:19:05 - ERROR - null
+12/07/2015 03:19:34 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 03:38:24 - ERROR - null
+12/07/2015 03:38:51 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 03:41:11 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 03:41:31 - ERROR - Connection reset
+12/07/2015 03:41:37 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 03:41:52 - ERROR - null
+12/07/2015 03:43:22 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 03:45:38 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 04:08:58 - ERROR - null
+12/07/2015 04:09:22 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 04:11:43 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 04:14:10 - ERROR - No such file or directory
+12/07/2015 04:14:19 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 04:17:19 - ERROR - Connection reset
+12/07/2015 04:17:29 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 04:17:41 - ERROR - No such file or directory
+12/07/2015 04:18:33 - ERROR - null
+12/07/2015 04:18:57 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 04:29:16 - ERROR - No such file or directory
+12/07/2015 04:42:56 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 04:44:08 - ERROR - No such file or directory
+12/07/2015 04:44:28 - ERROR - null
+12/07/2015 04:45:09 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 04:46:02 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 04:57:24 - ERROR - No such file or directory
+12/07/2015 04:57:31 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 04:57:44 - ERROR - No such file exists! Try again!
+12/07/2015 04:58:11 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 04:59:37 - ERROR - MTChat/src/main/resources
+12/07/2015 04:59:44 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 05:29:12 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 05:30:34 - ERROR - No such file or directory
+12/07/2015 05:30:54 - ERROR - Connection reset
+12/07/2015 05:31:15 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 05:31:28 - ERROR - No such file or directory
+12/07/2015 05:31:46 - ERROR - null
+12/07/2015 05:32:11 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 05:33:46 - ERROR - No such file or directory
+12/07/2015 05:36:42 - INFO - Client localhost/127.0.0.1:8888 has connected to server

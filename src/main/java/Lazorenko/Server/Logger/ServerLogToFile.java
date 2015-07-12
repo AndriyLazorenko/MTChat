@@ -14,7 +14,7 @@ import java.util.Date;
 
 public class ServerLogToFile {
     private static final String name = "main";
-    private static final String path = "resources/ServerLog.txt";
+    private static final String path = "src/main/resources/ServerLog.txt";
 
     public Logger getLogger() {
         return logger;

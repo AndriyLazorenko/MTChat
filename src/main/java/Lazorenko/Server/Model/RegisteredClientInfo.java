@@ -17,11 +17,11 @@ public class RegisteredClientInfo extends AbstractClientInfo{
     public RegisteredClientInfo() {
     }
 
-    public RegisteredClientInfo(Socket s, String userName) throws IOException {
+    public RegisteredClientInfo(ClientInfo ci, String userName) throws IOException {
         this.userName = userName;
-        this.s=s;
-        this.ois = new ObjectInputStream(s.getInputStream());
-        this.oos = new ObjectOutputStream(s.getOutputStream());
+        this.s=ci.getS();
+        this.ois = ci.getOis();
+        this.oos = ci.getOos();
     }
 
     public String getUserName() {

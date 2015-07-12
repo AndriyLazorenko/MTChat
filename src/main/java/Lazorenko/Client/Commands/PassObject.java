@@ -74,8 +74,14 @@ public class PassObject implements ClientCommands  {
             }
         }
         //Creating filename
-        String filename = modifiedWindowsPath.substring(modifiedWindowsPath.lastIndexOf("\\") + 1);
-
+        //Bad design
+        String filename = "";
+        if (modifiedWindowsPath.contains("\\")) {
+            filename = modifiedWindowsPath.substring(modifiedWindowsPath.lastIndexOf("\\") + 1);
+        }
+        else {
+            filename = modifiedWindowsPath.substring(modifiedWindowsPath.lastIndexOf("/")+1);
+        }
         InputStream is;
         byte[] file;
 

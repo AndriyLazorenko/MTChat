@@ -10,15 +10,12 @@ import Lazorenko.Common.Messages.ChatMessage;
  */
 
 public class ClientMessageProcessor {
-    private String input;
-    private ChatMessage chatMessage;
-    private boolean registeredClient;
 
-    public ClientMessageProcessor(String input, boolean registeredClient) {
-        this.input = input;
-        this.registeredClient = registeredClient;
+    private ChatMessage chatMessage;
+
+    public ClientMessageProcessor(final String input, boolean registeredClient) {
         if (registeredClient) {
-            if (this.input.contains("/")) {
+            if (input.contains("/")) {
                 //Check if message is a command.
                 switch (input) {
                     case "/h": {

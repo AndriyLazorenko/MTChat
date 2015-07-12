@@ -153,18 +153,17 @@ public class Server {
         private void registerClient(String validName){
             try {
                 //New object allocated to client
-                RegisteredClientInfo rci = new RegisteredClientInfo(clientInfo.getS(),validName);
+                RegisteredClientInfo rci = new RegisteredClientInfo(clientInfo,validName);
                 RegisteredClientThread rct = new RegisteredClientThread(rci);
                 //Client put to container for easy notification
                 reg.getContainer().put(validName,rci);
                 //Sending message to client
-                //
-                ChatMessage serverRegistration = new ChatMessage("The server registered you as " + validName + "\n");
+                ChatMessage serverRegistration =
+                        new ChatMessage("The server registered you as " + validName + "\n");
                 rci.getOos().writeObject(serverRegistration);
                 rci.getOos().flush();
                 //New thread allocated to client
                 Thread thread = new Thread(rct);
-//                thread.setDaemon(true);
                 thread.start();
                 //Removing client from general queue and interrupting thread
                 clientInfo.close(clientsContainer.getContainer());

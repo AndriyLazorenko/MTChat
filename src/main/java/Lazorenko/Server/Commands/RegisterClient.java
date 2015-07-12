@@ -6,7 +6,6 @@ import Lazorenko.Server.Model.RegisteredClientInfo;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
 
 /**
  * Created by Lazorenko on 07.07.2015.
