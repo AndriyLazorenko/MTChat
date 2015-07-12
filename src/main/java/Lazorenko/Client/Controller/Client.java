@@ -58,7 +58,6 @@ public class Client implements ClientAndObserver {
                     Scanner console = new Scanner(System.in);
                     while (s.isConnected()){
                         String message = console.nextLine();
-                        //TODO possible source of problems
                         if (message!=null) {
                             ClientMessageProcessor processor =
                                     new ClientMessageProcessor(message, isClientRegistered);

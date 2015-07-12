@@ -44,3 +44,28 @@
 12/07/2015 05:29:18 - ERROR - Broken pipe
 12/07/2015 05:29:18 - ERROR - Broken pipe
 12/07/2015 05:33:46 - ERROR - null
+12/07/2015 06:09:45 - ERROR - Connection reset
+12/07/2015 06:09:58 - ERROR - Broken pipe
+12/07/2015 06:10:59 - ERROR - Broken pipe
+12/07/2015 06:10:59 - ERROR - Broken pipe
+12/07/2015 06:12:18 - ERROR - Broken pipe
+12/07/2015 06:12:18 - ERROR - Broken pipe
+12/07/2015 06:12:18 - ERROR - Broken pipe
+12/07/2015 06:13:49 - ERROR - Broken pipe
+12/07/2015 06:13:49 - ERROR - Broken pipe
+12/07/2015 06:13:49 - ERROR - Broken pipe
+12/07/2015 06:13:49 - ERROR - Broken pipe
+12/07/2015 06:19:57 - ERROR - Server init error: Address already in use
+12/07/2015 06:20:04 - ERROR - Server init error: Address already in use
+12/07/2015 06:21:31 - ERROR - null
+12/07/2015 06:22:00 - ERROR - Broken pipe
+12/07/2015 06:34:21 - ERROR - null
+12/07/2015 06:37:14 - ERROR - Broken pipe
+12/07/2015 06:37:14 - ERROR - Broken pipe
+12/07/2015 06:38:46 - ERROR - Broken pipe
+12/07/2015 06:38:46 - ERROR - Broken pipe
+12/07/2015 06:38:46 - ERROR - Broken pipe
+12/07/2015 06:40:34 - ERROR - Broken pipe
+12/07/2015 06:40:34 - ERROR - Broken pipe
+12/07/2015 06:40:34 - ERROR - Broken pipe
+12/07/2015 06:40:34 - ERROR - Broken pipe

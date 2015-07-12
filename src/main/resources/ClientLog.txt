@@ -22,4 +22,25 @@
 12/07/2015 05:31:15 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 05:31:28 - ERROR - No such file or directory
 12/07/2015 05:31:46 - ERROR - null
 12/07/2015 05:32:11 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 05:33:46 - ERROR - No such file or directory
-12/07/2015 05:36:42 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+12/07/2015 05:36:42 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 05:58:19 - ERROR - null
+12/07/2015 05:58:27 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 05:59:07 - ERROR - No such file exists! Try again!
+12/07/2015 05:59:07 - ERROR - No such file or directory
+12/07/2015 05:59:58 - ERROR - null
+12/07/2015 06:00:07 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 06:00:22 - ERROR - This is not an image. Insert a filepath for file, which is an image null
+12/07/2015 06:00:25 - ERROR - No such file exists! Try again!
+12/07/2015 06:00:25 - ERROR - This is not an image. Insert a filepath for file, which is an image null
+12/07/2015 06:09:49 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 06:10:04 - ERROR - No such file exists! Try again!
+12/07/2015 06:10:04 - ERROR - No such file or directory
+12/07/2015 06:10:49 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 06:11:06 - ERROR - No such file exists! Try again!
+12/07/2015 06:11:06 - ERROR - No such file or directory
+12/07/2015 06:11:59 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 06:12:12 - ERROR - This is not an image. Insert a filepath for file, which is an image null
+12/07/2015 06:13:00 - ERROR - No such file exists! Try again!
+12/07/2015 06:13:00 - ERROR - This is not an image. Insert a filepath for file, which is an image null
+12/07/2015 06:13:04 - ERROR - No such file exists! Try again!
+12/07/2015 06:13:04 - ERROR - This is not an image. Insert a filepath for file, which is an image null
+12/07/2015 06:13:05 - ERROR - No such file exists! Try again!
+12/07/2015 06:13:05 - ERROR - This is not an image. Insert a filepath for file, which is an image null
+12/07/2015 06:13:35 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 06:18:13 - ERROR - No such file exists! Try again!
+12/07/2015 06:18:27 - ERROR - No such file exists! Try again!
+12/07/2015 06:19:08 - ERROR - Connection reset
+12/07/2015 06:19:15 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 06:20:39 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 06:21:50 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 06:25:50 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 06:34:28 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 06:37:01 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 06:38:31 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 06:40:25 - INFO - Client localhost/127.0.0.1:8888 has connected to server12/07/2015 06:41:33 - INFO - Client localhost/127.0.0.1:8888 has connected to server

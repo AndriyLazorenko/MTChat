@@ -172,3 +172,110 @@ ERROR main:60 - No such file or directory
 ERROR main:196 - null
 
 INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:103 - null
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:38 - No such file exists! Try again!
+
+ERROR main:65 - No such file or directory
+
+ERROR main:103 - null
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:61 - This is not an image. Insert a filepath for file, which is an image null
+
+ERROR main:46 - No such file exists! Try again!
+
+ERROR main:61 - This is not an image. Insert a filepath for file, which is an image null
+
+ERROR main:196 - Connection reset
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:44 - Broken pipe
+
+ERROR main:38 - No such file exists! Try again!
+
+ERROR main:65 - No such file or directory
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:44 - Broken pipe
+
+ERROR main:44 - Broken pipe
+
+ERROR main:38 - No such file exists! Try again!
+
+ERROR main:65 - No such file or directory
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:61 - This is not an image. Insert a filepath for file, which is an image null
+
+ERROR main:44 - Broken pipe
+
+ERROR main:44 - Broken pipe
+
+ERROR main:44 - Broken pipe
+
+ERROR main:46 - No such file exists! Try again!
+
+ERROR main:61 - This is not an image. Insert a filepath for file, which is an image null
+
+ERROR main:46 - No such file exists! Try again!
+
+ERROR main:61 - This is not an image. Insert a filepath for file, which is an image null
+
+ERROR main:46 - No such file exists! Try again!
+
+ERROR main:61 - This is not an image. Insert a filepath for file, which is an image null
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:44 - Broken pipe
+
+ERROR main:44 - Broken pipe
+
+ERROR main:44 - Broken pipe
+
+ERROR main:44 - Broken pipe
+
+ERROR main:32 - No such file exists! Try again!
+
+ERROR main:32 - No such file exists! Try again!
+
+ERROR main:103 - Connection reset
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:18 - Server init error: Address already in use
+
+ERROR main:18 - Server init error: Address already in use
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:196 - null
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:44 - Broken pipe
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:196 - null
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:44 - Broken pipe
+
+ERROR main:44 - Broken pipe
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:44 - Broken pipe
+
+ERROR main:44 - Broken pipe
+
+ERROR main:44 - Broken pipe
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:44 - Broken pipe
+
+ERROR main:44 - Broken pipe
+
+ERROR main:44 - Broken pipe
+
+ERROR main:44 - Broken pipe
+
+INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
