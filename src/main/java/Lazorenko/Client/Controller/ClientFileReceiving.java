@@ -20,29 +20,35 @@ public class ClientFileReceiving {
     public ClientFileReceiving(ChatMessage chatMessage) {
         this.chatMessage = chatMessage;
     }
-    //TODO method
 
-//    public String askForPath(){
-//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-//        Path path;
-//        String input;
-//        try {
-//            input = br.readLine();
-//
-//            }input;
-//            if (input)
-//
-//        } catch (IOException e) {
-//            log.getLogger().error(e.getMessage()+"\n");
-//            e.printStackTrace();
-//        }
-//
-//        return path.toString();
-//    }
+    private String askForPath(){
+        System.out.println("Insert correct filepath or type /d for default path");
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String input="";
+        try {
+            input = br.readLine();
+            if (input.equals("/d")){
+                return defaultPath;
+            }
+            else {
+                if (!new File(input).exists()) {
+                    try {
+                        throw new FileNotFoundException("No such file exists! Try again!");
+                    } catch (FileNotFoundException e) {
+                        log.getLogger().error(e.getMessage() + "\n");
+                        e.printStackTrace();
+                    }
+                }
+            }
+        } catch (IOException e) {
+            log.getLogger().error(e.getMessage()+"\n");
+            e.printStackTrace();
+        }
+        return input;
+    }
 
-    //TODO correct paths
     public void receive() {
-        Path path = Paths.get(defaultPath);
+        Path path = Paths.get(askForPath());
         Path normalized = Paths.get(path.normalize().toString());
         String absoluteFilePath = normalized.toAbsolutePath().toString()+"/"+chatMessage.getFilename();
         File file = new File(absoluteFilePath);
