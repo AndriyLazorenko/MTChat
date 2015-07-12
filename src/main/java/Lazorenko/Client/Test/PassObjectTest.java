@@ -1,6 +1,7 @@
 package Lazorenko.Client.Test;
 
-import Lazorenko.Client.Commands.PassObject;
+import Lazorenko.Client.SerializationService.PassObject;
+import Lazorenko.Client.SerializationService.SerializeObject;
 import Lazorenko.Common.Messages.ChatMessage;
 
 /**
@@ -8,8 +9,8 @@ import Lazorenko.Common.Messages.ChatMessage;
  */
 public class PassObjectTest {
     public static void main(String[] args) {
-        PassObject passObject = new PassObject();
-        ChatMessage chatMessage = passObject.getChatMessage();
+        SerializeObject serializeObject = new PassObject();
+        ChatMessage chatMessage = serializeObject.getChatMessage();
         System.out.println(chatMessage.getFilename());
         System.out.println(chatMessage.getFile().length);
     }

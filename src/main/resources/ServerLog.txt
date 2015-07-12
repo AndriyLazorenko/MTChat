@@ -69,3 +69,13 @@
 12/07/2015 06:40:34 - ERROR - Broken pipe
 12/07/2015 06:40:34 - ERROR - Broken pipe
 12/07/2015 06:40:34 - ERROR - Broken pipe
+12/07/2015 09:52:04 - ERROR - Server init error: Address already in use
+12/07/2015 09:52:13 - ERROR - Server init error: Address already in use
+12/07/2015 10:02:18 - ERROR - null
+12/07/2015 10:02:30 - ERROR - Broken pipe
+12/07/2015 10:04:23 - ERROR - Broken pipe
+12/07/2015 10:04:23 - ERROR - Broken pipe
+12/07/2015 10:16:01 - ERROR - Connection reset
+12/07/2015 10:16:09 - ERROR - Broken pipe
+12/07/2015 10:16:24 - ERROR - Broken pipe
+12/07/2015 10:16:24 - ERROR - Broken pipe

@@ -2,7 +2,8 @@ package Lazorenko.Client.Controller;
 
 import Lazorenko.Client.Commands.ClientCommands;
 import Lazorenko.Client.Commands.Help;
-import Lazorenko.Client.Commands.PassObject;
+import Lazorenko.Client.SerializationService.PassObject;
+import Lazorenko.Client.SerializationService.SerializeObject;
 import Lazorenko.Common.Messages.ChatMessage;
 
 /**

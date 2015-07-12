@@ -2,6 +2,7 @@
 package Lazorenko.Client.Controller;
 
 import Lazorenko.Client.Logger.ClientLogToFile;
+import Lazorenko.Client.SerializationService.ReceiveObject;
 import Lazorenko.Common.Messages.ChatMessage;
 import Lazorenko.Common.Messages.MessageFormatter;
 
@@ -90,8 +91,8 @@ public class Client implements ClientAndObserver {
                             clientName = message.getUsername();
                         }
                         else if (message.getFile()!=null){
-                            ClientFileReceiving fileReceiving = new ClientFileReceiving(message);
-                            fileReceiving.receive();
+                                ReceiveObject receiveObject = new ReceiveObject(message);
+                                receiveObject.getChatMessage();
                         }
                         else {
                             MessageFormatter formatter = new MessageFormatter(message);

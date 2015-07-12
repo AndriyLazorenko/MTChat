@@ -147,7 +147,7 @@ public class Server {
                 //lifecycles
                 registerClient(name.getSimpleMessage());
             }
-            System.out.println("The user has been registered");
+            System.out.println("The user '"+name.getSimpleMessage()+"' has been registered");
         }
 
         private void registerClient(String validName){

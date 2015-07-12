@@ -279,3 +279,51 @@ ERROR main:44 - Broken pipe
 ERROR main:44 - Broken pipe
 
 INFO  main:38 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:18 - Server init error: Address already in use
+
+ERROR main:18 - Server init error: Address already in use
+
+ERROR main:? - null
+
+INFO  main:39 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:52 - /home/andriylazorenko/MEGA/Мусор (Is a directory)
+
+ERROR main:52 - /home/andriylazorenko/MEGA/Мусор (Is a directory)
+
+ERROR main:196 - null
+
+INFO  main:39 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:44 - Broken pipe
+
+INFO  main:39 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:44 - Broken pipe
+
+ERROR main:44 - Broken pipe
+
+ERROR main:47 - /home/andriylazorenko/MEGA/Мусор (Is a directory)
+
+INFO  main:39 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:105 - null
+
+INFO  main:40 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:196 - Connection reset
+
+INFO  main:40 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:44 - Broken pipe
+
+INFO  main:40 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:44 - Broken pipe
+
+ERROR main:44 - Broken pipe
+
+ERROR main:105 - Connection reset
+
+INFO  main:40 - Client localhost/127.0.0.1:8888 has connected to server
+ERROR main:38 - No such file exists! Try again!
+
+ERROR main:38 - No such file exists! Try again!
+
+ERROR main:38 - No such file exists! Try again!
+
+ERROR main:38 - No such file exists! Try again!
+
