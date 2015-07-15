@@ -1,10 +1,9 @@
-package Lazorenko.Server.Model;
+package Lazorenko.Server.Model.Structures;
 
-import java.net.Socket;
-import java.util.concurrent.BlockingQueue;
+import Lazorenko.Server.Model.Info.AbstractClientInfo;
+
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * Created by andriylazorenko on 26.06.15.

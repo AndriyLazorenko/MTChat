@@ -1,81 +1,108 @@
-05/07/2015 01:44:06 - ERROR - Server init error Address already in use05/07/2015 01:45:00 - ERROR - Server init error: Address already in use12/07/2015 01:29:44 - ERROR - invalid stream header: 7371007E
-12/07/2015 01:29:44 - ERROR - invalid type code: 00
-12/07/2015 01:29:44 - ERROR - invalid stream header: 00000000
-12/07/2015 01:31:53 - ERROR - Connection reset
-12/07/2015 01:42:26 - ERROR - Connection reset
-12/07/2015 01:55:21 - ERROR - Server init error: Address already in use
-12/07/2015 01:55:34 - ERROR - Server init error: Address already in use
-12/07/2015 01:59:08 - ERROR - null
-12/07/2015 01:59:08 - ERROR - Broken pipe
-12/07/2015 02:09:18 - ERROR - Server init error: Address already in use
-12/07/2015 02:09:28 - ERROR - Server init error: Address already in use
-12/07/2015 02:09:33 - ERROR - null
-12/07/2015 02:14:38 - ERROR - null
-12/07/2015 02:14:55 - ERROR - Broken pipe
-12/07/2015 03:38:13 - ERROR - Server init error: Address already in use
-12/07/2015 03:38:20 - ERROR - Server init error: Address already in use
-12/07/2015 03:38:32 - ERROR - Server init error: Address already in use
-12/07/2015 03:41:07 - ERROR - null
-12/07/2015 03:41:16 - ERROR - Broken pipe
-12/07/2015 03:41:52 - INFO - Server is being shutdown on command
-12/07/2015 03:45:33 - ERROR - null
-12/07/2015 03:46:01 - ERROR - Broken pipe
-12/07/2015 04:11:36 - ERROR - null
-12/07/2015 04:12:00 - ERROR - Broken pipe
-12/07/2015 04:14:32 - ERROR - Broken pipe
-12/07/2015 04:14:32 - ERROR - Broken pipe
-12/07/2015 04:33:20 - ERROR - Server init error: Address already in use
-12/07/2015 04:33:28 - ERROR - Server init error: Address already in use
-12/07/2015 04:33:39 - ERROR - Server init error: Address already in use
-12/07/2015 04:46:15 - ERROR - Broken pipe
-12/07/2015 04:54:50 - ERROR - Server init error: Address already in use
-12/07/2015 04:57:38 - ERROR - Broken pipe
-12/07/2015 04:57:38 - ERROR - Broken pipe
-12/07/2015 04:58:25 - ERROR - Broken pipe
-12/07/2015 04:58:25 - ERROR - Broken pipe
-12/07/2015 04:58:25 - ERROR - Broken pipe
-12/07/2015 04:59:57 - ERROR - Broken pipe
-12/07/2015 04:59:57 - ERROR - Broken pipe
-12/07/2015 04:59:57 - ERROR - Broken pipe
-12/07/2015 04:59:57 - ERROR - Broken pipe
-12/07/2015 05:28:51 - ERROR - Server init error: Address already in use
-12/07/2015 05:29:18 - ERROR - Broken pipe
-12/07/2015 05:29:18 - ERROR - Broken pipe
-12/07/2015 05:29:18 - ERROR - Broken pipe
-12/07/2015 05:29:18 - ERROR - Broken pipe
-12/07/2015 05:33:46 - ERROR - null
-12/07/2015 06:09:45 - ERROR - Connection reset
-12/07/2015 06:09:58 - ERROR - Broken pipe
-12/07/2015 06:10:59 - ERROR - Broken pipe
-12/07/2015 06:10:59 - ERROR - Broken pipe
-12/07/2015 06:12:18 - ERROR - Broken pipe
-12/07/2015 06:12:18 - ERROR - Broken pipe
-12/07/2015 06:12:18 - ERROR - Broken pipe
-12/07/2015 06:13:49 - ERROR - Broken pipe
-12/07/2015 06:13:49 - ERROR - Broken pipe
-12/07/2015 06:13:49 - ERROR - Broken pipe
-12/07/2015 06:13:49 - ERROR - Broken pipe
-12/07/2015 06:19:57 - ERROR - Server init error: Address already in use
-12/07/2015 06:20:04 - ERROR - Server init error: Address already in use
-12/07/2015 06:21:31 - ERROR - null
-12/07/2015 06:22:00 - ERROR - Broken pipe
-12/07/2015 06:34:21 - ERROR - null
-12/07/2015 06:37:14 - ERROR - Broken pipe
-12/07/2015 06:37:14 - ERROR - Broken pipe
-12/07/2015 06:38:46 - ERROR - Broken pipe
-12/07/2015 06:38:46 - ERROR - Broken pipe
-12/07/2015 06:38:46 - ERROR - Broken pipe
-12/07/2015 06:40:34 - ERROR - Broken pipe
-12/07/2015 06:40:34 - ERROR - Broken pipe
-12/07/2015 06:40:34 - ERROR - Broken pipe
-12/07/2015 06:40:34 - ERROR - Broken pipe
-12/07/2015 09:52:04 - ERROR - Server init error: Address already in use
-12/07/2015 09:52:13 - ERROR - Server init error: Address already in use
-12/07/2015 10:02:18 - ERROR - null
-12/07/2015 10:02:30 - ERROR - Broken pipe
-12/07/2015 10:04:23 - ERROR - Broken pipe
-12/07/2015 10:04:23 - ERROR - Broken pipe
-12/07/2015 10:16:01 - ERROR - Connection reset
-12/07/2015 10:16:09 - ERROR - Broken pipe
-12/07/2015 10:16:24 - ERROR - Broken pipe
-12/07/2015 10:16:24 - ERROR - Broken pipe
+13/07/2015 12:05:49 - ERROR - Server is being shutdown because of Accept timed out
+13/07/2015 12:06:02 - ERROR - Server is being shutdown because of Accept timed out
+13/07/2015 12:06:14 - ERROR - Server is being shutdown because of Accept timed out
+15/07/2015 12:24:40 - ERROR - null
+15/07/2015 12:25:04 - ERROR - Broken pipe
+15/07/2015 12:26:33 - ERROR - Broken pipe
+15/07/2015 12:26:33 - ERROR - Broken pipe
+15/07/2015 12:28:18 - ERROR - null
+15/07/2015 12:28:37 - ERROR - Broken pipe
+15/07/2015 12:37:14 - ERROR - Broken pipe
+15/07/2015 12:37:14 - ERROR - Broken pipe
+15/07/2015 12:40:01 - ERROR - Broken pipe
+15/07/2015 12:40:01 - ERROR - Broken pipe
+15/07/2015 12:40:01 - ERROR - Broken pipe
+15/07/2015 12:42:29 - ERROR - Broken pipe
+15/07/2015 12:42:29 - ERROR - Broken pipe
+15/07/2015 12:42:29 - ERROR - Broken pipe
+15/07/2015 12:42:29 - ERROR - Broken pipe
+15/07/2015 12:44:34 - ERROR - Broken pipe
+15/07/2015 12:44:34 - ERROR - Broken pipe
+15/07/2015 12:44:34 - ERROR - Broken pipe
+15/07/2015 12:44:34 - ERROR - Broken pipe
+15/07/2015 12:44:34 - ERROR - Broken pipe
+15/07/2015 12:45:11 - ERROR - Broken pipe
+15/07/2015 12:45:11 - ERROR - Broken pipe
+15/07/2015 12:45:11 - ERROR - Broken pipe
+15/07/2015 12:45:11 - ERROR - Broken pipe
+15/07/2015 12:45:11 - ERROR - Broken pipe
+15/07/2015 12:45:11 - ERROR - Broken pipe
+15/07/2015 12:47:07 - ERROR - Broken pipe
+15/07/2015 12:47:07 - ERROR - Broken pipe
+15/07/2015 12:47:07 - ERROR - Broken pipe
+15/07/2015 12:47:07 - ERROR - Broken pipe
+15/07/2015 12:47:07 - ERROR - Broken pipe
+15/07/2015 12:47:07 - ERROR - Broken pipe
+15/07/2015 12:47:07 - ERROR - Broken pipe
+15/07/2015 12:49:32 - ERROR - Broken pipe
+15/07/2015 12:49:32 - ERROR - Broken pipe
+15/07/2015 12:49:32 - ERROR - Broken pipe
+15/07/2015 12:49:32 - ERROR - Broken pipe
+15/07/2015 12:49:32 - ERROR - Broken pipe
+15/07/2015 12:49:32 - ERROR - Broken pipe
+15/07/2015 12:49:32 - ERROR - Broken pipe
+15/07/2015 12:49:32 - ERROR - Broken pipe
+15/07/2015 12:50:19 - ERROR - Broken pipe
+15/07/2015 12:50:19 - ERROR - Broken pipe
+15/07/2015 12:50:19 - ERROR - Broken pipe
+15/07/2015 12:50:19 - ERROR - Broken pipe
+15/07/2015 12:50:19 - ERROR - Broken pipe
+15/07/2015 12:50:19 - ERROR - Broken pipe
+15/07/2015 12:50:19 - ERROR - Broken pipe
+15/07/2015 12:50:19 - ERROR - Broken pipe
+15/07/2015 12:50:19 - ERROR - Broken pipe
+15/07/2015 12:51:32 - ERROR - Broken pipe
+15/07/2015 12:51:32 - ERROR - Broken pipe
+15/07/2015 12:51:32 - ERROR - Broken pipe
+15/07/2015 12:51:32 - ERROR - Broken pipe
+15/07/2015 12:51:32 - ERROR - Broken pipe
+15/07/2015 12:51:32 - ERROR - Broken pipe
+15/07/2015 12:51:32 - ERROR - Broken pipe
+15/07/2015 12:51:32 - ERROR - Broken pipe
+15/07/2015 12:51:32 - ERROR - Broken pipe
+15/07/2015 12:51:32 - ERROR - Broken pipe
+15/07/2015 01:00:22 - ERROR - Broken pipe
+15/07/2015 01:00:22 - ERROR - Broken pipe
+15/07/2015 01:00:22 - ERROR - Broken pipe
+15/07/2015 01:00:22 - ERROR - Broken pipe
+15/07/2015 01:00:22 - ERROR - Broken pipe
+15/07/2015 01:00:22 - ERROR - Broken pipe
+15/07/2015 01:00:22 - ERROR - Broken pipe
+15/07/2015 01:00:22 - ERROR - Broken pipe
+15/07/2015 01:00:22 - ERROR - Broken pipe
+15/07/2015 01:00:22 - ERROR - Broken pipe
+15/07/2015 01:00:22 - ERROR - Broken pipe
+15/07/2015 01:10:59 - ERROR - Connection reset
+15/07/2015 01:11:10 - ERROR - Broken pipe
+15/07/2015 01:11:46 - ERROR - Broken pipe
+15/07/2015 01:11:46 - ERROR - Broken pipe
+15/07/2015 01:18:24 - ERROR - null
+15/07/2015 01:18:41 - ERROR - Broken pipe
+15/07/2015 01:29:22 - ERROR - Broken pipe
+15/07/2015 01:29:22 - ERROR - Broken pipe
+15/07/2015 01:37:09 - ERROR - null
+15/07/2015 01:37:19 - ERROR - Broken pipe
+15/07/2015 01:51:36 - ERROR - Broken pipe
+15/07/2015 01:51:36 - ERROR - Broken pipe
+15/07/2015 01:52:59 - ERROR - Connection reset
+15/07/2015 02:13:00 - ERROR - null
+15/07/2015 02:13:09 - ERROR - Broken pipe
+15/07/2015 02:13:55 - ERROR - Broken pipe
+15/07/2015 02:13:55 - ERROR - Broken pipe
+15/07/2015 02:15:24 - ERROR - Broken pipe
+15/07/2015 02:15:24 - ERROR - Broken pipe
+15/07/2015 02:15:24 - ERROR - Broken pipe
+15/07/2015 02:20:10 - ERROR - null
+15/07/2015 02:20:21 - ERROR - Broken pipe
+15/07/2015 02:20:45 - ERROR - Broken pipe
+15/07/2015 02:20:45 - ERROR - Broken pipe
+15/07/2015 02:23:48 - ERROR - null
+15/07/2015 02:23:56 - ERROR - Broken pipe
+15/07/2015 02:31:25 - ERROR - null
+15/07/2015 02:31:33 - ERROR - Broken pipe
+15/07/2015 03:12:43 - ERROR - null
+15/07/2015 03:12:57 - ERROR - Broken pipe
+15/07/2015 03:32:12 - ERROR - null
+15/07/2015 03:32:30 - ERROR - null
+15/07/2015 03:32:37 - ERROR - null
+15/07/2015 03:35:00 - ERROR - null

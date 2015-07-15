@@ -1,4 +1,4 @@
-package Lazorenko.Server.Model;
+package Lazorenko.Server.Model.Info;
 
 import Lazorenko.Common.Messages.ChatMessage;
 
@@ -21,15 +21,15 @@ public class ClientInfo extends AbstractClientInfo {
         this.oos = new ObjectOutputStream(s.getOutputStream());
     }
 
-    public void nameExistsNotifyClient(ConcurrentMap map){
+    public void nameExistsNotifyClient(ConcurrentMap map, String sender){
         String notify = "Name already exists! Try again!";
         ChatMessage notification = new ChatMessage(notify);
-        send(notification,map);
+        send(notification,map,sender);
     }
-    public void validateNotifyClient (ConcurrentMap map){
+    public void validateNotifyClient (ConcurrentMap map, String sender){
         String notify = "Name is invalid! Try again!";
         ChatMessage notification = new ChatMessage(notify);
-        send(notification,map);
+        send(notification,map,sender);
     }
 
 }

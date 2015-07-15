@@ -5,7 +5,12 @@ import Lazorenko.Common.Messages.ChatMessage;
 import Lazorenko.Server.Commands.RegisterClient;
 import Lazorenko.Server.Commands.ServerCommands;
 import Lazorenko.Server.Logger.ServerLogToFile;
-import Lazorenko.Server.Model.*;
+import Lazorenko.Server.Model.Info.AbstractClientInfo;
+import Lazorenko.Server.Model.Info.ClientInfo;
+import Lazorenko.Server.Model.Info.RegisteredClientInfo;
+import Lazorenko.Server.Model.Structures.ClientsContainer;
+import Lazorenko.Server.Model.Structures.RegisteredClientsContainer;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -28,7 +33,7 @@ public class Server {
     public void run() {
         System.out.println("Waiting for client");
         mainThread = Thread.currentThread();
-        while (true) {
+        while (!ss.isClosed()) {
             Socket client = getNewConnection();//Method for easy exit
             if (mainThread.isInterrupted()) {
                 break;
@@ -69,7 +74,7 @@ public class Server {
 
     private void shutdownServer() {
         for (AbstractClientInfo ci : clientsContainer.getContainer().values()) {
-            ci.close(clientsContainer.getContainer());
+            ci.close(clientsContainer.getContainer(),Integer.toString(ci.getS().getPort()));
         }
         if (!ss.isClosed()) {
             try {
@@ -100,14 +105,14 @@ public class Server {
                         ObjectInputStream ois = clientInfo.getOis();
                         name = (ChatMessage) ois.readObject();
                     } catch (IOException e) {
-                        close(clientsContainer.getContainer());
+                        close(clientsContainer.getContainer(),Integer.toString(clientInfo.getS().getPort()));
                         log.getLogger().error(e.getMessage()+"\n");
                     } catch (ClassNotFoundException e) {
                         log.getLogger().error(e.getMessage()+"\n");
                         e.printStackTrace();
                     }
                     if (name == null) {
-                        close(clientsContainer.getContainer());
+                        close(clientsContainer.getContainer(),Integer.toString(clientInfo.getS().getPort()));
                     } else if ("shutdown".equals(name.getSimpleMessage())) {
                         mainThread.interrupt();
                         try {
@@ -125,7 +130,8 @@ public class Server {
                             if (name.getSimpleMessage().toLowerCase().equals(existingNames.toLowerCase())) {
                                 //Method to ask again for a new name
                                 matchingNameFound = true;
-                                clientInfo.nameExistsNotifyClient(clientsContainer.getContainer());
+                                clientInfo.nameExistsNotifyClient(clientsContainer.getContainer(),
+                                        Integer.toString(clientInfo.getS().getPort()));
                             }
                         }
                     }
@@ -137,7 +143,8 @@ public class Server {
                                 clientNameIsCorrect = true;
                             }
                             else {
-                                clientInfo.validateNotifyClient(clientsContainer.getContainer());
+                                clientInfo.validateNotifyClient(clientsContainer.getContainer(),
+                                        Integer.toString(clientInfo.getS().getPort()));
                             }
                         }
                     }
@@ -166,7 +173,7 @@ public class Server {
                 Thread thread = new Thread(rct);
                 thread.start();
                 //Removing client from general queue and interrupting thread
-                clientInfo.close(clientsContainer.getContainer());
+                clientInfo.close(clientsContainer.getContainer(),Integer.toString(clientInfo.getS().getPort()));
                 //Sending a command to client to register server
                 ServerCommands command = new RegisterClient(rci);
                 command.execute();
@@ -192,15 +199,18 @@ public class Server {
                 try {
                     message = (ChatMessage) registeredClientInfo.getOis().readObject();
                 } catch (IOException e) {
-                    close(reg.getContainer());
+                    close(reg.getContainer(),registeredClientInfo.getUserName());
                     log.getLogger().error(e.getMessage()+"\n");
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                     log.getLogger().error(e.getMessage() + "\n");
                 }
                 if (message == null) {
-                    close(reg.getContainer());
-                } else if ("shutdown".equals(message.getSimpleMessage())) {
+                    close(reg.getContainer(),registeredClientInfo.getUserName());
+                } else if ("internal".equals(message.getSimpleMessage())){
+
+                }
+                else if ("shutdown".equals(message.getSimpleMessage())) {
                     mainThread.interrupt();
                     try {
                         new Socket("localhost", port);
@@ -219,7 +229,7 @@ public class Server {
                     message.setUsername(username);
                     //Formatted message is sent to all registered users
                     for (AbstractClientInfo rci : reg.getContainer().values()) {
-                        rci.send(message, reg.getContainer());
+                        rci.send(message, reg.getContainer(),registeredClientInfo.getUserName());
                     }
                 }
             }

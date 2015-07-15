@@ -1,4 +1,4 @@
-package Lazorenko.Server.Model;
+package Lazorenko.Server.Model.Structures;
 
 
 import java.util.concurrent.ConcurrentMap;

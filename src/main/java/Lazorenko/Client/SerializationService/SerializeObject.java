@@ -17,7 +17,7 @@ public abstract class SerializeObject {
     protected ChatMessage chatMessage;
     protected ClientLogToFile log = ClientLogToFile.getInstance();
 
-    protected abstract ChatMessage processObject();
+    protected abstract ChatMessage processObject(InputStream is);
 
     protected String getFilename(String modifiedWindowsPath) {
         String filename = "";
@@ -56,7 +56,7 @@ public abstract class SerializeObject {
     }
 
 
-    public ChatMessage getChatMessage() {
-        return processObject();
+    public ChatMessage getChatMessage(InputStream is) {
+        return processObject(is);
     }
 }

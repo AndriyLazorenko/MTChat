@@ -1,10 +1,6 @@
-package Lazorenko.Server.Model;
-
-import Lazorenko.Server.Logger.ServerLogToFile;
+package Lazorenko.Server.Model.Info;
 
 import java.io.*;
-import java.net.Socket;
-import java.util.Queue;
 
 /**
  * Created by andriylazorenko on 26.06.15.

@@ -1,4 +1,4 @@
-package Lazorenko.Server.Model;
+package Lazorenko.Server.Model.Info;
 
 import Lazorenko.Common.Messages.ChatMessage;
 import Lazorenko.Server.Logger.ServerLogToFile;
@@ -29,18 +29,19 @@ public abstract class AbstractClientInfo {
         return oos;
     }
 
-    public void close(ConcurrentMap map) {
-        map.remove(this);
+    public void close(ConcurrentMap map, String name) {
+
+        map.remove(name);
         //Interrupting the thread
         Thread.currentThread().interrupt();
     }
 
-    public synchronized void send (ChatMessage message, ConcurrentMap map) {
+    public void send (ChatMessage message, ConcurrentMap map, String sender) {
         try {
             oos.writeObject(message);
             oos.flush();
         } catch (IOException e) {
-            close(map);
+            close(map,sender);
             log.getLogger().error(e.getMessage()+"\n");
         }
     }

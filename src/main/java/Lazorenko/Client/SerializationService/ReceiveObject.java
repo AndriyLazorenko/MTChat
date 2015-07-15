@@ -21,24 +21,25 @@ public class ReceiveObject extends SerializeObject {
     private static final String defaultPath = "./src/main/resources";
 
     @Override
-    protected synchronized ChatMessage processObject() {
-        //TODO understand why the fuck is double enter required at this stage?
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    protected synchronized ChatMessage processObject(InputStream consoleInput) {
+        BufferedReader br = new BufferedReader(new InputStreamReader(consoleInput));
         System.out.println("Do you want to save file to default location? y/n");
         String choiceDefaultOrNotLocation = "";
         try {
             choiceDefaultOrNotLocation = br.readLine();
             String absoluteFilePath;
+            String finalPath;
         if (choiceDefaultOrNotLocation.toLowerCase().equals("y")){
             Path path = Paths.get(defaultPath);
             Path normalized = Paths.get(path.normalize().toString());
             absoluteFilePath = normalized.toAbsolutePath().toString()+"/"+chatMessage.getFilename();
+            finalPath=absoluteFilePath;
         }
         else {
             System.out.println("Please insert a filepath that you want to transfer to");
             absoluteFilePath= getPathTo(br);
+            finalPath = absoluteFilePath.concat("/"+chatMessage.getFilename());
         }
-            String finalPath = absoluteFilePath.concat("/"+chatMessage.getFilename());
         File file = new File(finalPath);
             file.createNewFile();
             FileOutputStream fos = new FileOutputStream(file);
@@ -48,6 +49,8 @@ public class ReceiveObject extends SerializeObject {
         } catch (IOException e) {
             log.getLogger().error(e.getMessage()+"\n");
             e.printStackTrace();
+        } finally {
+            System.out.println("The file has been received!");
         }
         return chatMessage;
     }
@@ -61,7 +64,11 @@ public class ReceiveObject extends SerializeObject {
                 input = br.readLine();
                 forRet = windowsPathRearrange(input);
                 pathOkay = locationExists(forRet,pathOkay);
+                if (!pathOkay){
+                    System.err.println("The path is incorrect. Try again!");
+                }
             } catch (IOException e) {
+                log.getLogger().error(e.getMessage()+"\n");
                 e.printStackTrace();
             }
         }

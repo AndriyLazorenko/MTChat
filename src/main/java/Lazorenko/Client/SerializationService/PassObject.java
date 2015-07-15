@@ -15,8 +15,8 @@ public class PassObject extends SerializeObject implements ClientCommands {
 
 
     @Override
-    protected synchronized ChatMessage processObject() {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    protected ChatMessage processObject(InputStream console) {
+        BufferedReader br = new BufferedReader(new InputStreamReader(console));
         System.out.println("Please insert a filepath that you want to transfer");
         String modifiedWindowsPath = getPathFrom(br);
         //Creating filename
@@ -79,5 +79,10 @@ public class PassObject extends SerializeObject implements ClientCommands {
             }
         }
         return modifiedWindowsPath;
+    }
+
+    @Override
+    public ChatMessage getChatMessage(InputStream is) {
+        return processObject(is);
     }
 }

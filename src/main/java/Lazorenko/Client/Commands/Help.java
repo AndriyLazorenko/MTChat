@@ -2,6 +2,8 @@ package Lazorenko.Client.Commands;
 
 import Lazorenko.Common.Messages.ChatMessage;
 
+import java.io.InputStream;
+
 /**
  * Created by Lazorenko on 07.07.2015.
  */
@@ -17,8 +19,9 @@ public class Help implements ClientCommands {
     }
 
     @Override
-    public ChatMessage getChatMessage() {
+    public ChatMessage getChatMessage(InputStream console) {
         help();
-        return null;
+        ChatMessage forRet = new ChatMessage("internal");
+        return forRet;
     }
 }

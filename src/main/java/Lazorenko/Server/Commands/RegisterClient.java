@@ -2,7 +2,7 @@ package Lazorenko.Server.Commands;
 
 import Lazorenko.Common.Messages.ChatMessage;
 import Lazorenko.Server.Logger.ServerLogToFile;
-import Lazorenko.Server.Model.RegisteredClientInfo;
+import Lazorenko.Server.Model.Info.RegisteredClientInfo;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
