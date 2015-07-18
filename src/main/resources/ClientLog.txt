@@ -58,3 +58,39 @@
 15/07/2015 03:32:33 - INFO - Client localhost/127.0.0.1:8888 has connected to server
 15/07/2015 03:32:39 - INFO - Client localhost/127.0.0.1:8888 has connected to server
 15/07/2015 03:35:04 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+16/07/2015 05:26:53 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+16/07/2015 05:38:22 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+16/07/2015 05:41:47 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+16/07/2015 05:42:26 - ERROR - Connection reset
+16/07/2015 05:42:32 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+16/07/2015 05:44:12 - ERROR - Connection reset
+16/07/2015 05:46:14 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+16/07/2015 05:47:04 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+16/07/2015 05:51:35 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+16/07/2015 05:51:51 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+16/07/2015 05:58:43 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+16/07/2015 05:58:53 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+16/07/2015 06:01:14 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+16/07/2015 06:01:18 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+16/07/2015 06:02:37 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+16/07/2015 06:02:41 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+16/07/2015 06:04:00 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+16/07/2015 06:04:08 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+18/07/2015 11:15:44 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+18/07/2015 11:18:53 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+18/07/2015 11:41:43 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+18/07/2015 11:41:48 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+18/07/2015 11:44:06 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+18/07/2015 11:44:16 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+18/07/2015 11:48:17 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+18/07/2015 11:48:23 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+18/07/2015 11:53:01 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+18/07/2015 11:53:06 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+18/07/2015 12:04:47 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+18/07/2015 12:05:03 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+18/07/2015 12:05:26 - ERROR - Connection reset
+18/07/2015 12:05:26 - ERROR - Connection reset
+18/07/2015 12:05:39 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+18/07/2015 12:05:43 - INFO - Client localhost/127.0.0.1:8888 has connected to server
+18/07/2015 12:07:47 - ERROR - null
+18/07/2015 12:07:47 - ERROR - null

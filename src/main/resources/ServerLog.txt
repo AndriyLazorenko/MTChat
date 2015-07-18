@@ -106,3 +106,23 @@
 15/07/2015 03:32:30 - ERROR - null
 15/07/2015 03:32:37 - ERROR - null
 15/07/2015 03:35:00 - ERROR - null
+15/07/2015 07:08:39 - ERROR - null
+16/07/2015 05:42:01 - ERROR - Broken pipe
+16/07/2015 05:51:26 - ERROR - null
+16/07/2015 05:51:46 - ERROR - Connection reset
+16/07/2015 05:57:58 - ERROR - null
+16/07/2015 05:58:37 - ERROR - null
+16/07/2015 06:01:04 - ERROR - Connection reset
+16/07/2015 06:01:11 - ERROR - Connection reset
+16/07/2015 06:02:31 - ERROR - null
+16/07/2015 06:02:34 - ERROR - null
+18/07/2015 11:41:30 - ERROR - Connection reset
+18/07/2015 11:41:40 - ERROR - Connection reset
+18/07/2015 11:43:59 - ERROR - null
+18/07/2015 11:44:02 - ERROR - null
+18/07/2015 11:48:08 - ERROR - null
+18/07/2015 11:48:13 - ERROR - null
+18/07/2015 12:04:38 - ERROR - null
+18/07/2015 12:04:51 - ERROR - null
+18/07/2015 12:04:57 - ERROR - Lazorenko.Common.Messages.ChatMessage; local class incompatible: stream classdesc serialVersionUID = 1744913912292986069, local class serialVersionUID = 1523699894824880624
+18/07/2015 12:05:04 - ERROR - Lazorenko.Common.Messages.ChatMessage; local class incompatible: stream classdesc serialVersionUID = 1744913912292986069, local class serialVersionUID = 1523699894824880624

@@ -21,6 +21,7 @@ public class Client implements ClientAndObserver {
     protected static String clientName;
     protected Thread speaking;
     volatile InputStream consoleInput = System.in;
+    volatile static boolean askToAcceptFile = false;
 
     public Client(String ip, int port){
         this.ip = ip;
@@ -66,18 +67,38 @@ public class Client implements ClientAndObserver {
                 ObjectOutputStream oos = new ObjectOutputStream(s.getOutputStream());
                 Scanner console = new Scanner(consoleInput);
                 while (s.isConnected()) {
-                    String message = console.nextLine();
-                    if (message != null) {
-                        ClientMessageProcessor processor =
-                                new ClientMessageProcessor(message, isClientRegistered, consoleInput);
-                        ChatMessage chatMessage = processor.run();
-                        oos.writeObject(chatMessage);
-                        oos.flush();
+                    if (askToAcceptFile){
+                        sendMessage(oos, console,askToAcceptFile);
+                    }
+                    else {
+                        sendMessage(oos, console,askToAcceptFile);
                     }
                 }
             }catch (IOException e) {
                 log.getLogger().error(e.getMessage() + "\n");
                 e.printStackTrace();
+            }
+        }
+
+        private void sendMessage(ObjectOutputStream oos, Scanner console, boolean file) {
+            ClientMessageProcessor processor;
+            String message = console.nextLine();
+            if (message != null) {
+                if (file){
+                    processor = new FileClientMessageProcessor(message, isClientRegistered);
+                    askToAcceptFile = false;
+                }
+                else {
+                    processor = new DefaultClientMessageProcessor(message, isClientRegistered, consoleInput);
+                }
+                ChatMessage chatMessage = processor.run();
+                try {
+                    oos.writeObject(chatMessage);
+                    oos.flush();
+                } catch (IOException e) {
+                    log.getLogger().error(e.getMessage() + "\n");
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -98,30 +119,9 @@ public class Client implements ClientAndObserver {
                     ObjectInputStream ois = new ObjectInputStream(is);
                     while (s.isConnected()){
                         ChatMessage message = (ChatMessage) ois.readObject();
-                        //Check if message is a command. If it is, it is processed. If not - the message is simply passed
-                        if (message.isClientRegistered()) {
-                            isClientRegistered = true;
-                            clientName = message.getUsername();
-                        }
-                        else if (message.getFile()!=null){
-                            //TODO ask Serhiy
-                            /**
-                             * Currently a spike is in place.
-                             * The bitch would stick to System.in and won't let go
-                             * The only reasonable way seems to put some input, then - pass to
-                             * sync block where our guys catch the InputStream and do their job
-                             * of receiving file to correct path
-                             */
-                            System.out.println("Type 'internal' to continue");
-                            synchronized (consoleInput){
-                                ReceiveObject receiveObject = new ReceiveObject(message);
-                                receiveObject.getChatMessage(consoleInput);
-                            }
-                        }
-                        else {
-                            MessageFormatter formatter = new MessageFormatter(message);
-                            System.out.println(formatter.returnFormattedMessage());
-                        }
+                        //Check if message is a command. If it is, it is processed.
+                        // If not - the message is simply passed
+                        processMessage(message);
                     }
                 } catch (IOException e) {
                     log.getLogger().error(e.getMessage()+"\n");
@@ -130,7 +130,33 @@ public class Client implements ClientAndObserver {
                     log.getLogger().error(e.getMessage() + "\n");
                     e.printStackTrace();
                 }
+            }
 
+            private void processMessage(ChatMessage message) {
+                if (message.isClientRegistered()) {
+                    isClientRegistered = true;
+                    clientName = message.getUsername();
+                }
+
+                else if (message.isAskClientToAcceptFile()){
+                    System.out.println("Type 'internal' to continue");
+                    //TODO try to debug the confusing part. Think of a walkaround architecturally first
+                    askToAcceptFile = true;
+                    System.out.println("Do you want to accept picture of size " + message.getFileSize()
+                            + " coming from " + message.getUsername() +" ? y/n");
+                }
+                else if (message.getFile()!=null) {
+                    System.out.println("Type 'internal' to continue");
+                    synchronized (consoleInput){
+                        ReceiveObject receiveObject = new ReceiveObject(message);
+                        receiveObject.getChatMessage(consoleInput);
+                    }
+                }
+
+                else {
+                    MessageFormatter formatter = new MessageFormatter(message);
+                    System.out.println(formatter.returnFormattedMessage());
+                }
             }
         }).start();
 

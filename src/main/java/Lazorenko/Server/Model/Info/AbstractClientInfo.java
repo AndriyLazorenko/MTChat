@@ -5,7 +5,9 @@ import Lazorenko.Server.Logger.ServerLogToFile;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.Queue;
 import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * Created by andriylazorenko on 26.06.15.
@@ -17,6 +19,11 @@ public abstract class AbstractClientInfo {
     protected ObjectInputStream ois;
     protected ObjectOutputStream oos;
     protected ServerLogToFile log = ServerLogToFile.getInstance();
+    private Queue<ChatMessage> files = new LinkedBlockingQueue<>();
+
+    public Queue<ChatMessage> getFiles() {
+        return files;
+    }
 
     public Socket getS() {
         return s;

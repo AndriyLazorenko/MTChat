@@ -1,6 +1,10 @@
 package Lazorenko.Server.Model.Info;
 
+import Lazorenko.Common.Messages.ChatMessage;
+
 import java.io.*;
+import java.util.Queue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * Created by andriylazorenko on 26.06.15.

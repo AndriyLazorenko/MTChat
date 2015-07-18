@@ -205,32 +205,70 @@ public class Server {
                     e.printStackTrace();
                     log.getLogger().error(e.getMessage() + "\n");
                 }
-                if (message == null) {
-                    close(reg.getContainer(),registeredClientInfo.getUserName());
-                } else if ("internal".equals(message.getSimpleMessage())){
 
+                processMessage(message);
+            }
+        }
+
+        private void processMessage(ChatMessage message) {
+
+            if (message == null) {
+                //Server removes client
+                close(reg.getContainer(),registeredClientInfo.getUserName());
+            }
+
+            else if ("internal".equals(message.getSimpleMessage())){
+                //Server does nothing
+            }
+
+            else if ("shutdown".equals(message.getSimpleMessage())) {
+                //Server shuts down
+                mainThread.interrupt();
+                try {
+                    new Socket("localhost", port);
+                } catch (IOException ignored) {
+                } finally {
+                    log.getLogger().info("Server is being shutdown on command" + "\n");
+                    shutdownServer();
                 }
-                else if ("shutdown".equals(message.getSimpleMessage())) {
-                    mainThread.interrupt();
-                    try {
-                        new Socket("localhost", port);
-                    } catch (IOException ignored) {
-                    } finally {
-                        log.getLogger().info("Server is being shutdown on command" + "\n");
-                        shutdownServer();
+            }
+
+            else if (message.getFile()!=null){
+                //Method for handling such an event
+                ChatMessage askIfClientAcceptsFile = new ChatMessage
+                        (message.getFile().length,true,registeredClientInfo.getUserName());
+                for (AbstractClientInfo rci: reg.getContainer().values()){
+                    //So the file is not sent to self
+                    if (rci.getS().getPort()==registeredClientInfo.getS().getPort()){
+                        continue;
                     }
-                } else {
-                    //A message is formed
-                    String ip = registeredClientInfo.getS().getInetAddress().toString();
-                    int port = registeredClientInfo.getS().getPort();
-                    String username = registeredClientInfo.getUserName();
-                    message.setIp(ip);
-                    message.setPort(port);
-                    message.setUsername(username);
-                    //Formatted message is sent to all registered users
-                    for (AbstractClientInfo rci : reg.getContainer().values()) {
-                        rci.send(message, reg.getContainer(),registeredClientInfo.getUserName());
-                    }
+                    rci.send(askIfClientAcceptsFile,reg.getContainer(),registeredClientInfo.getUserName());
+                    rci.getFiles().add(message);
+                }
+            }
+
+            else if (message.isClientAcceptsFile()) {
+                    registeredClientInfo.send
+                            (registeredClientInfo.getFiles().poll(), reg.getContainer(),
+                                    registeredClientInfo.getUserName());
+                }
+            else if (message.isClientRejectsFile()) {
+                    registeredClientInfo.getFiles().poll();
+                    ChatMessage response = new ChatMessage("You have declined to accept the file");
+                    registeredClientInfo.send(response,reg.getContainer(),registeredClientInfo.getUserName());
+                }
+
+            else {
+                //A message is formed
+                String ip = registeredClientInfo.getS().getInetAddress().toString();
+                int port = registeredClientInfo.getS().getPort();
+                String username = registeredClientInfo.getUserName();
+                message.setIp(ip);
+                message.setPort(port);
+                message.setUsername(username);
+                //Formatted message is sent to all registered users
+                for (AbstractClientInfo rci : reg.getContainer().values()) {
+                    rci.send(message, reg.getContainer(),registeredClientInfo.getUserName());
                 }
             }
         }

@@ -337,3 +337,113 @@ ERROR main:203 - null
 
 INFO  main:41 - Client localhost/127.0.0.1:8888 has connected to server
 
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+ERROR main:45 - Broken pipe
+
+ERROR main:126 - Connection reset
+
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+ERROR main:126 - Connection reset
+
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+ERROR main:203 - null
+
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+ERROR main:203 - Connection reset
+
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+ERROR main:203 - null
+
+ERROR main:203 - null
+
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+ERROR main:203 - Connection reset
+
+ERROR main:203 - Connection reset
+
+INFO  main:43 - Client localhost/127.0.0.1:8888 has connected to server
+
+INFO  main:43 - Client localhost/127.0.0.1:8888 has connected to server
+
+ERROR main:203 - null
+
+ERROR main:203 - null
+
+INFO  main:43 - Client localhost/127.0.0.1:8888 has connected to server
+
+INFO  main:43 - Client localhost/127.0.0.1:8888 has connected to server
+
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+ERROR main:203 - Connection reset
+
+ERROR main:203 - Connection reset
+
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+ERROR main:203 - null
+
+ERROR main:203 - null
+
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+ERROR main:203 - null
+
+ERROR main:203 - null
+
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+ERROR main:203 - null
+
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+ERROR main:203 - null
+
+ERROR main:109 - Lazorenko.Common.Messages.ChatMessage; local class incompatible: stream classdesc serialVersionUID = 1744913912292986069, local class serialVersionUID = 1523699894824880624
+
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+ERROR main:109 - Lazorenko.Common.Messages.ChatMessage; local class incompatible: stream classdesc serialVersionUID = 1744913912292986069, local class serialVersionUID = 1523699894824880624
+
+ERROR main:127 - Connection reset
+
+ERROR main:127 - Connection reset
+
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+INFO  main:42 - Client localhost/127.0.0.1:8888 has connected to server
+
+ERROR main:127 - null
+
+ERROR main:127 - null
+
