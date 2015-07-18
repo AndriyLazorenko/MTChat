@@ -140,7 +140,7 @@ public class Client implements ClientAndObserver {
 
                 else if (message.isAskClientToAcceptFile()){
                     System.out.println("Type 'internal' to continue");
-                    //TODO try to debug the confusing part. Think of a walkaround architecturally first
+                    //TODO try to debug the confusing part. Think of a workaround architecturally first
                     askToAcceptFile = true;
                     System.out.println("Do you want to accept picture of size " + message.getFileSize()
                             + " coming from " + message.getUsername() +" ? y/n");
